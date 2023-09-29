@@ -1,1 +1,0 @@
-This is the homework for Week 1 day 1 and day 2

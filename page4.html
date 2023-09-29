@@ -1,0 +1,128 @@
+<html>
+<head>
+    <title>Chino Hills Pets Adoption Service</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<!-- Container is to wrap everything -->
+<div id="container">
+<!-- Website Brand -->
+    <header>Chino Hills Pets Adoption Service</header>
+<!-- Main Navigation -->    
+    <nav>
+        <ul>
+            <li style="font-size: 24px;"><a href="index.html">Home Page</a></li>
+            <li style="font-size: 24px;"><a href="page2.html">Available Pets</a></li>
+            <li style="font-size: 24px;"><a href="page4.html">Gallery</a></li>
+            <li style="font-size: 24px;"><a href="page3.html">Contact Us.</a></li>
+        </ul>
+    </nav>
+<!-- Main Content -->
+    <main>
+<br><h1>Ready to Adpot a pet?</h1>
+<p>Let's get started and you can find your pet here!</p>
+<div class="film-strip">
+    <img src="image/dog6.jpeg" alt="Pet Adoption">
+    <img src="image/dog7.jpeg" alt="Pet Adoption">
+    <img src="image/dog8.jpeg" alt="Pet Adoption">
+    <img src="image/dog9.jpeg" alt="Pet Adoption">
+    <img src="image/dog10.jpeg" alt="Pet Adoption">
+</div>
+    <h1>Gallery</h1>
+        <ul id="photoGallery">
+        
+        </ul>
+        <div id="infoBox" style="display:none; position:fixed; top:10%; left:50%; transform:translate(-50%, 0); width:400px; background:white; border: 1px solid #ccc; padding: 20px; z-index: 1000;">
+            <h2 id="infoBoxCaption"></h2>
+            <p id="infoBoxText"></p>
+            <a href="#" id="infoBoxClose">Close</a>
+        </div>
+</main>
+<!-- Footer -->
+    
+<footer>
+    <br>Contact us:<br>
+    Email:info@chinohillspet<br>
+    Phone: (123)456-7890<br>
+    Address:111 Pet Street, Chino Hills,91809<br>
+    &copy; Copyright 2023
+</footer>
+</div>
+<script>
+    const photos = [
+        "image/lab1.jpeg",
+        "image/lab2.jpeg",
+        "image/lab3.jpeg",
+        "image/lab4.jpeg",
+        "image/lab5.jpeg",
+        "image/lab6.jpeg",
+        "image/lab7.jpeg",
+        "image/lab8.jpeg",
+        "image/lab9.jpeg",
+        "image/lab10.jpeg"
+    ];
+
+    const captionTexts = [
+        "Happy Pooch", 
+        "Playful Partner", 
+        "Lazy Day", 
+        "Adventurous Spirit", 
+        "Best Friend",
+        "Ready for Walks",
+        "Dreamy Day",
+        "Eager Explorer",
+        "Posing Perfectly",
+        "Ball Chaser"
+    ];
+
+    const descTexts = [
+        "This is Max, he loves to play.",
+        "Meet Bella, always up for a game of fetch.",
+        "Luna, enjoying her afternoon nap.",
+        "Charlie, always ready for an adventure.",
+        "Lucy, the most loyal companion.",
+        "Cooper, excited for his morning walk.",
+        "Chloe, lost in her little world.",
+        "Buddy, looking for his next adventure.",
+        "Sadie, posing for her close-up.",
+        "Rocky, dreaming about chasing balls."
+    ];
+
+    var infoTexts = [
+    "This is Max, a playful canine. Max has a cheerful demeanor and gets along well with other dogs. He would be a great addition to any loving family.",
+    "Bella is a charming dog with a mischievous side. She loves chasing squirrels in the park and is always up for a game of fetch.",
+    "Luna is a calm and reserved dog. She enjoys lazy afternoons and loves basking in the sun. Luna would be a great fit for someone seeking a low-maintenance pet.",
+    "Charlie is a bundle of energy. He is always on the move and loves long walks and hiking. Charlie is looking for an active family that can keep up with his energy levels.",
+    "Lucy is a loyal and devoted pet. She bonds quickly with her human and is very protective. Lucy needs a home that can provide her with plenty of affection.",
+    "Cooper is a young and spirited dog. He's easily trainable and has a knack for learning new tricks. Cooper is looking for a family that can guide him and nurture his talents.",
+    "Chloe is a dreamer. She enjoys staring out of the window and watching the world go by. Chloe would be a great fit for a calm and peaceful household.",
+    "Buddy is an adventurer. He is curious and loves exploring new places. Buddy is looking for a family that can take him on new adventures and introduce him to the world.",
+    "Sadie is a model pet. She is well-behaved, patient, and poses well for pictures. Sadie is looking for a family that can give her the love and attention she deserves.",
+    "Rocky is an athlete. He loves running and chasing balls. Rocky is seeking an owner who can provide him with ample physical activity and playtime."
+    ];
+
+    var photoGallery = document.getElementById('photoGallery');
+
+    var photoGallery = document.getElementById('photoGallery');
+
+    for (var i = 0; i < photos.length; i++) {
+        var li = document.createElement('li');
+        li.innerHTML = `<img src="${photos[i]}" alt="A pet available for adoption">
+                       <div class="caption">${captionTexts[i]}</div>`;
+        li.addEventListener('click', (function(index) {
+            return function() {
+                document.getElementById('infoBoxCaption').innerText = captionTexts[index];
+                document.getElementById('infoBoxText').innerText = infoTexts[index]; // Display content from infoTexts
+                document.getElementById('infoBox').style.display = 'block';
+            };
+        })(i));
+        photoGallery.appendChild(li);
+    }
+
+    document.getElementById('infoBoxClose').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('infoBox').style.display = 'none';
+    });
+</script>
+</body>
+</html>
